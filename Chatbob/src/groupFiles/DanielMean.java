@@ -1,6 +1,6 @@
 package groupFiles;
 
-import Chatbot.DanielQMain;
+//import Chatbot.DanielQMain;
 
 public class DanielMean implements Topic {
 	
@@ -31,9 +31,12 @@ public class DanielMean implements Topic {
 	}
 
 	private void printSadResponse() {
-//		for(int a = 0; a < sadResponses.length; a++){
-//			SharonChatBox.print(sadResponses[a]);
-//		}
+		if(meanCount<=4){
+			SharonChatBox.print(sadResponses[meanCount-1]);
+		}
+		if(meanCount>4){
+			SharonChatBox.print("...");
+		}
 		
 		
 		
@@ -46,7 +49,7 @@ public class DanielMean implements Topic {
 		String[] meanTriggers = {"stupid", "idiot", "ugly", "dumb", "useless", "loser", "failure"};
 		for(int i = 0; i < meanTriggers.length; i++){
 			
-			if(SharonChatBox.findKeyword(userInput, i , 0)>=0){
+			if(SharonChatBox.findKeyword(userInput, meanTriggers[i] , 0)>=0){
 				return true;
 			}
 
