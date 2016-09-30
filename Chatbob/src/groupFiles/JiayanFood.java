@@ -10,7 +10,7 @@ private String foodResponse;
 	{
 		
 	}
-		
+		 
 
 	}
 	public boolean isTriggered(String userInput) {
