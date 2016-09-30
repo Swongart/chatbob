@@ -14,7 +14,7 @@ public class SharonChatBox {
 	static Topic hello;
 	static Topic food;
 	static Topic mean;
-	
+	static Topic jokes;
 	
 	
 	public static void main(String[] args){
@@ -195,7 +195,7 @@ public class SharonChatBox {
 		hello= new SharonHello();
 		mean= new DanielMean();
 		food=new JiayanFood();
-		
+		jokes= new SharonJokes();
 	}
 	
 	
