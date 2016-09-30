@@ -7,7 +7,7 @@ public class AnnaWWE implements Topic{
 	private boolean inWWELoop;
 	private String WWEResponse;
 	
-	@Override
+	@Override 
 	public void talk() {
 		// TODO Auto-generated method stub
 		
