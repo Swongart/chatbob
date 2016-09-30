@@ -22,13 +22,31 @@ public class DanielMean implements Topic {
 		}
 		printSadResponse();
 		meanResponse = SharonChatBox.getInput();
-		if(!isTriggered(meanResponse)){
+		if(isApology(meanResponse) == true){
+			SharonChatBox.print("I accept your apology");
+			
 			inMeanLoop = false;
 			SharonChatBox.talkForever();
 		}
 
 		
 	}
+
+	private boolean isApology(String apology) {
+		String[] apologyResponse = {"sorry", "apologize"};
+		for(int i = 0; i < apologyResponse.length; i++){
+			
+			if(SharonChatBox.findKeyword(apology, apologyResponse[i] , 0)>=0){
+				return true;
+			}
+
+		}
+			
+		
+		return false;
+	}
+
+
 
 	private void printSadResponse() {
 		if(meanCount<=4){
