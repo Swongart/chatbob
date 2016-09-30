@@ -6,7 +6,7 @@ private String foodResponse;
 
 	public void talk() {
 	inFoodLoop = true;
-	while(inSchoolLoop)
+	while(inFoodLoop)
 	{
 		
 	}
