@@ -12,6 +12,10 @@ public class SharonChatBox {
 	static Topic school;
 	static Topic like;
 	static Topic hello;
+	static Topic food;
+	static Topic mean;
+	
+	
 	
 	public static void main(String[] args){
 		createTopics();
@@ -189,6 +193,9 @@ public class SharonChatBox {
 		school=new School();
 		like= new SharonLike();
 		hello= new SharonHello();
+		mean= new DanielMean();
+		food=new JiayanFood();
+		
 	}
 	
 	
