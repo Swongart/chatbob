@@ -16,7 +16,7 @@ public class SharonChatBox {
 	static Topic mean;
 	static Topic nice;
 	static Topic jokes;
-	
+	static Topic sports;
 
 	public static void main(String[] args){
 		createTopics();
@@ -76,6 +76,11 @@ public class SharonChatBox {
 				{
 					inLoop = false;
 					nice.talk();      
+				}
+				else if (sports.isTriggered(response))
+				{
+					inLoop = false;
+					sports.talk();      
 				}
 			
 				else 
@@ -207,6 +212,7 @@ public class SharonChatBox {
 		food=new JiayanFood();
 		nice= new DanielNice();
 		jokes= new SharonJokes();
+		sports= new AnnaWWE();
 	}
 	
 	
