@@ -13,7 +13,6 @@ public class DanielMean implements Topic {
 		meanCount = 0;
 	}
 	
-	
 
 	@Override
 	public void talk() {
