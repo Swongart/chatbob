@@ -44,6 +44,6 @@ public class DanielNice  implements Topic  {
 		}
 			
 		return false;
-	}
+	} 
 
 }

@@ -42,6 +42,6 @@ public class AnnaWWE implements Topic{
 			}
 		}
 		return false;
-	}
+	} 
 
 }

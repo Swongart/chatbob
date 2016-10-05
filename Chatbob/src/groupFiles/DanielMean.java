@@ -74,6 +74,6 @@ public class DanielMean implements Topic {
 		}
 			
 		return false;
-	}
+	} 
 
 }
