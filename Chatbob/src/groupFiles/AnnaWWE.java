@@ -6,6 +6,7 @@ public class AnnaWWE implements Topic{
 
 	private boolean inWWELoop;
 	private String WWEResponse;
+	private String wrestler;
 	
 	@Override 
 	public void talk() {
@@ -19,7 +20,8 @@ public class AnnaWWE implements Topic{
 				SharonChatBox.print("Do you like WWE?");
 				if (SharonChatBox.findKeyword(WWEResponse, "yes", 0)>=0){
 					SharonChatBox.print("You are so cool. Who do you like?");
-					 
+					 String wrestler = WWEResponse;
+					 SharonChatBox.print(wrestler + " is the best!");
 				}
 				else{
 					inWWELoop = false;
