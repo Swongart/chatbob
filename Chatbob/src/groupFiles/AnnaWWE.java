@@ -19,7 +19,7 @@ public class AnnaWWE implements Topic{
 				SharonChatBox.print("Do you like WWE?");
 				if (SharonChatBox.findKeyword(WWEResponse, "yes", 0)>=0){
 					SharonChatBox.print("You are so cool. Who do you like?");
-					
+					 
 				}
 				else{
 					inWWELoop = false;
