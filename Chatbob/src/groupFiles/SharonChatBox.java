@@ -21,24 +21,18 @@ public class SharonChatBox {
 	public static void main(String[] args){
 		createTopics();
 		//lineCount=0;
-		
-//		String s1="a";
-//		String s2="b";
-//		System.out.println(s1.compareTo(s2));
+	
 		promptName();
 		talkForever();
 		
 	}
 	
 	public static void promptName(){
-		print("Hello, human! I am a "
-				+"board covered with "
-				+"semiconductors and \n"
-				+"other such electronic components. "
-				+"What is your name?");
+		print("Hello, What is your name?");
 				user=input.nextLine();
 				print("Awesome! I will call you "+user+ " until you terminate me.");
 	}
+	
 	
 	public static void talkForever(){
 		inLoop=true;
@@ -53,21 +47,37 @@ public class SharonChatBox {
 //				print("I'm sorry, I don't understand you.");
 //				}
 //			}
-				else if (findKeyword(response, "school", 0)>=0)
+				else if (school.isTriggered(response))
 				{
-					inLoop = false;//exit this loop
+					inLoop = false; //exit this greetings loop
 					school.talk();
 				}
-				else if (findKeyword(response, "like", 0)>=0)
+				else if (like.isTriggered(response))
+				{
+					inLoop = false; //exit this greetings loop
+					like.talk();
+				}
+				else if (food.isTriggered(response))
 				{
 					inLoop = false;
-					like.talk();      
+					food.talk();      
 				}
-				else if (findKeyword(response, "hello", 0)>=0)
+				else if (jokes.isTriggered(response))
 				{
 					inLoop = false;
-					hello.talk();      
+					jokes.talk();      
 				}
+				else if (mean.isTriggered(response))
+				{
+					inLoop = false;
+					mean.talk();      
+				}
+				else if (nice.isTriggered(response))
+				{
+					inLoop = false;
+					nice.talk();      
+				}
+			
 				else 
 				{
 					print("I do not understand you.");
@@ -198,6 +208,9 @@ public class SharonChatBox {
 		nice= new DanielNice();
 		jokes= new SharonJokes();
 	}
+	
+	
+	
 	
 	
 			
