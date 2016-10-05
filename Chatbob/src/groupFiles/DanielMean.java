@@ -50,7 +50,7 @@ public class DanielMean implements Topic {
 
 	private void printSadResponse() {
 		if(meanCount<=4){
-			SharonChatBox.print(sadResponses[meanCount-1]);
+			SharonChatBox.print(sadResponses[meanCount]);
 		}
 		if(meanCount>4){
 			SharonChatBox.print("...");
