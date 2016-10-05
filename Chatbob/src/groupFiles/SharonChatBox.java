@@ -14,9 +14,10 @@ public class SharonChatBox {
 	static Topic hello;
 	static Topic food;
 	static Topic mean;
+	static Topic nice;
 	static Topic jokes;
 	
-	
+
 	public static void main(String[] args){
 		createTopics();
 		//lineCount=0;
@@ -47,7 +48,6 @@ public class SharonChatBox {
 			if (findKeyword(response,"good",0)>=0){
 				print("I'm so happy you're good.");
 			}
-			
 			
 //				else{
 //				print("I'm sorry, I don't understand you.");
@@ -195,6 +195,7 @@ public class SharonChatBox {
 		hello= new SharonHello();
 		mean= new DanielMean();
 		food=new JiayanFood();
+		nice= new DanielNice();
 		jokes= new SharonJokes();
 	}
 	
