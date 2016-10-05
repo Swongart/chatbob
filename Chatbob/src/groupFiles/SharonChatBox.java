@@ -53,21 +53,32 @@ public class SharonChatBox {
 //				print("I'm sorry, I don't understand you.");
 //				}
 //			}
-				else if (findKeyword(response, "school", 0)>=0)
+				else if (school.isTriggered(response))
 				{
 					inLoop = false;//exit this loop
 					school.talk();
 				}
-				else if (findKeyword(response, "like", 0)>=0)
+				else if (food.isTriggered(response))
 				{
 					inLoop = false;
-					like.talk();      
+					food.talk();      
 				}
-				else if (findKeyword(response, "hello", 0)>=0)
+				else if (jokes.isTriggered(response))
 				{
 					inLoop = false;
-					hello.talk();      
+					jokes.talk();      
 				}
+				else if (mean.isTriggered(response))
+				{
+					inLoop = false;
+					mean.talk();      
+				}
+				else if (nice.isTriggered(response))
+				{
+					inLoop = false;
+					nice.talk();      
+				}
+			
 				else 
 				{
 					print("I do not understand you.");
@@ -198,6 +209,9 @@ public class SharonChatBox {
 		nice= new DanielNice();
 		jokes= new SharonJokes();
 	}
+	
+	
+	
 	
 	
 			

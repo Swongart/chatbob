@@ -28,6 +28,7 @@ public class SharonLike implements Topic{
 	}
 
 		public boolean isTriggered(String userInput){
+			
 			if (SharonChatBox.findKeyword(userInput, "like", 0)>=0){
 				return true;
 			}
