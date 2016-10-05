@@ -13,7 +13,7 @@ private static String [] restaurants = {"Di Fara Pizza","Ample Hills Creamery","
 	public void talk() {
 	inRestaurantLoop = true;
 	inFoodLoop = true;
-	while(inRestaurantLoop)
+	while(inRestaurantLoop) 
 	{
 		foodResponse = SharonChatBox.getInput();
 		suggestRestaurant();
