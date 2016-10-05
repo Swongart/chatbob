@@ -18,6 +18,9 @@ public class DanielNice  implements Topic  {
 		}
 		printHappyResponse();
 		niceResponse = SharonChatBox.getInput();
+		if(!isTriggered()){
+			
+		}	
 
 	}
 	
@@ -32,7 +35,7 @@ public class DanielNice  implements Topic  {
 
 	@Override
 	public boolean isTriggered(String userInput) {
-		String[] niceTriggers = {"smart", "cool", "awesome", "great", "useful", "nice", "intelligent","funny","kind"};
+		String[] niceTriggers = {"smart", "cool", "awesome", "great", "useful", "nice", "intelligent","funny","kind","amazing"};
 		for(int i = 0; i < niceTriggers.length; i++){
 			
 			if(SharonChatBox.findKeyword(userInput, niceTriggers[i] , 0)>=0){
