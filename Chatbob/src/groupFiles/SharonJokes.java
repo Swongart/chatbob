@@ -22,7 +22,7 @@ public class SharonJokes implements Topic {
 			
 		}
 			 
-
+//asdfasdf
 		
 		public boolean isTriggered(String userInput) {
 			if(SharonChatBox.findKeyword(userInput, "joke", 0)>= 0)
