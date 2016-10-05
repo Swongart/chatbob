@@ -21,24 +21,18 @@ public class SharonChatBox {
 	public static void main(String[] args){
 		createTopics();
 		//lineCount=0;
-		
-//		String s1="a";
-//		String s2="b";
-//		System.out.println(s1.compareTo(s2));
+	
 		promptName();
 		talkForever();
 		
 	}
 	
 	public static void promptName(){
-		print("Hello, human! I am a "
-				+"board covered with "
-				+"semiconductors and \n"
-				+"other such electronic components. "
-				+"What is your name?");
+		print("Hello, What is your name?");
 				user=input.nextLine();
 				print("Awesome! I will call you "+user+ " until you terminate me.");
 	}
+	
 	
 	public static void talkForever(){
 		inLoop=true;
@@ -55,8 +49,13 @@ public class SharonChatBox {
 //			}
 				else if (school.isTriggered(response))
 				{
-					inLoop = false;//exit this loop
+					inLoop = false; //exit this greetings loop
 					school.talk();
+				}
+				else if (like.isTriggered(response))
+				{
+					inLoop = false; //exit this greetings loop
+					like.talk();
 				}
 				else if (food.isTriggered(response))
 				{
