@@ -26,7 +26,7 @@ public class DanielNice  implements Topic  {
 	
 	private void printHappyResponse(){
 		if(niceCount<=8)
-			SharonChatBox.print(happyResponses[niceCount-1]);
+			SharonChatBox.print(happyResponses[niceCount]);
 		else
 		    SharonChatBox.print("Let's talk about you instead.");
 					    
