@@ -4,7 +4,10 @@ public class JiayanFood implements Topic {
 private boolean inRestaurantLoop;
 private boolean inFoodLoop;
 private String foodResponse;
-private static String [] foods = {"pizza","ice cream","Japanese Food", "Korean Food"};
+private static String [] foods = {"pizza","ice cream","Japanese Food","Korean Food"};
+private static String [] foodResponseArr = {"I like pizza too. I like plain cheese pizza the best.",
+		"I love ice cream too! Eating ice cream in the winter is the best",
+		"I don't enjoy Japanese food. Why do you like it?", "I only enjoy certain Korean dishes. Which is your favorite?"};
 private static String [] restaurants = {"Di Fara Pizza","Ample Hills Creamery","Kyo Ya","Shilla"};
 
 	public void talk() {
@@ -31,25 +34,6 @@ private static String [] restaurants = {"Di Fara Pizza","Ample Hills Creamery","
 		}
 	} 
 	}
-	/*private void suggestRestaurants()
-	{
-		if(SharonChatBox.findKeyword(foodResponse, "pizza", 0)>= 0)
-		{
-			SharonChatBox.print("Since you like pizza, I suggest you go to "+ restaurants[0]);
-		}
-		if(SharonChatBox.findKeyword(foodResponse, "ice cream", 0)>= 0)
-		{
-			SharonChatBox.print("In New York, I think "+ restaurants[1] + "is great for ice cream");
-		}
-		if(SharonChatBox.findKeyword(foodResponse, "Japanese Food", 0)>= 0)
-		{
-			SharonChatBox.print("I know all about Japanese food! The "+ restaurants[2]+ "restaurant is awesome!");
-		}
-		if(SharonChatBox.findKeyword(foodResponse, "Korean Food", 0)>= 0)
-		{
-			SharonChatBox.print("In manhattan, I suggest you go to "+ restaurants[3] + "for authentic korean food.");
-		}
-	}*/
 	private void suggestRestaurant()
 	{
 		for(int foodIndex = 0; foodIndex < 8; foodIndex++)
@@ -62,6 +46,22 @@ private static String [] restaurants = {"Di Fara Pizza","Ample Hills Creamery","
 	}
 	private void talkFoods()
 	{
+		if(SharonChatBox.findKeyword(foodResponse, "pizza", 0)>= 0)
+		{
+			SharonChatBox.print(foodResponseArr[0]);
+		}
+		if(SharonChatBox.findKeyword(foodResponse, "ice cream", 0)>= 0)
+		{
+			SharonChatBox.print(foodResponseArr[1]);
+		}
+		if(SharonChatBox.findKeyword(foodResponse, "Japanese Food", 0)>= 0)
+		{
+			SharonChatBox.print(foodResponseArr[2]);
+		}
+		if(SharonChatBox.findKeyword(foodResponse, "Korean Food", 0)>= 0)
+		{
+			SharonChatBox.print(foodResponseArr[3]);
+		}
 		
 	}
 	public boolean isTriggered(String userInput) {
