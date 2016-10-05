@@ -18,8 +18,8 @@ public class DanielNice  implements Topic  {
 		}
 		printHappyResponse();
 		niceResponse = SharonChatBox.getInput();
-		if(!isTriggered()){
-			
+		if(!isTriggered(niceResponse)){
+			inNiceLoop = false;
 		}	
 
 	}
