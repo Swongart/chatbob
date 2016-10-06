@@ -76,6 +76,11 @@ public class SharonChatBox {
 					inLoop = false;
 					nice.talk();      
 				}
+				else if (jokes.isTriggered(response))
+				{
+					inLoop = false; 
+					jokes.talk();
+				}
 			
 				else 
 				{
