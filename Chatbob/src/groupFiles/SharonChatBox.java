@@ -6,7 +6,6 @@ public class SharonChatBox {
 	
 	static Scanner input;
 	static String user;
-	//static int lineCount;
 	static boolean inLoop;
 	static String response;
 	static Topic school;
@@ -16,11 +15,11 @@ public class SharonChatBox {
 	static Topic mean;
 	static Topic nice;
 	static Topic jokes;
+	static Topic sports;
 	
 
 	public static void main(String[] args){
 		createTopics();
-		//lineCount=0;
 	
 		promptName();
 		talkForever();
@@ -30,7 +29,7 @@ public class SharonChatBox {
 	public static void promptName(){
 		print("Hello, What is your name?");
 				user=input.nextLine();
-				print("Awesome! I will call you "+user+ " until you terminate me.");
+				print("Nice to meet you, "+user+ " !");
 	}
 	
 	
@@ -39,14 +38,19 @@ public class SharonChatBox {
 		while (inLoop){
 			print("Greetings, "+user+". How are you?");
 			response=getInput();
+			
+			inLoop=false;
+			
 			if (findKeyword(response,"good",0)>=0){
 				print("I'm so happy you're good.");
+			
+			}
+			else if (findKeyword(response,"terrible",0)>=0){
+				print("poor thing! \nlet me tell you a joke :) ");
+				inLoop= false;
+				jokes.talk();
 			}
 			
-//				else{
-//				print("I'm sorry, I don't understand you.");
-//				}
-//			}
 				else if (school.isTriggered(response))
 				{
 					inLoop = false; //exit this greetings loop
@@ -62,11 +66,7 @@ public class SharonChatBox {
 					inLoop = false;
 					food.talk();      
 				}
-				else if (jokes.isTriggered(response))
-				{
-					inLoop = false;
-					jokes.talk();      
-				}
+				
 				else if (mean.isTriggered(response))
 				{
 					inLoop = false;
@@ -92,14 +92,10 @@ public class SharonChatBox {
 		//set all the letters to lowercase
 		phrase=phrase.toLowerCase();
 		key=key.toLowerCase();
-		/*
-		System.out.println("The phrase is "+phrase);
-		System.out.println("The key is "+key);
-		*/
-		//psn=position;
+		
 		int psn=phrase.indexOf(key); 
 		/*
-		System.out.println("The postition found is "+psn);
+		System.out.println("The position found is "+psn);
 		//keep looking for the word until you find the right context.
 		*/
 		while (psn>=0){
@@ -121,8 +117,7 @@ public class SharonChatBox {
 				}
 				//return psn;
 			}
-			//in case the keyword was not found yet,
-			//check the rest of the string.
+			//in case the keyword was not found yet,check the rest of the string.
 			psn=phrase.indexOf(key,psn+1);
 			/*System.out.println(key+" was not found. Checking "+psn);*/
 		}
@@ -134,15 +129,8 @@ public class SharonChatBox {
 		return input.nextLine();
 	}
 	
-	//helper method: a method that contributes functionality to another method
-	//they are very common when you need to do the same thing repeatedly
-	//they also help make methods more readable.
-	//this method is private because it is only used by the method it is helping.
-	
 	private static boolean noNegations(String phrase, int index){
-	//check for the word "NO "(3 characters);
-		//check to see if there is space for the word
-		//"NO " to be in front of the index
+	
 		if (index-3>=0 && phrase.substring(index-3,index).equals("no ")){
 			return false;
 		}
@@ -168,12 +156,9 @@ public class SharonChatBox {
 	}
 	
 	public static void print(String s){
-		//lineCount++;
 		//create a multi-line String
 		String printString = "";
 		int cutoff= 35;
-		//check to see if there are words to add
-		//(IOW is the length of s>0
 		while(s.length()>0){
 			String currentLine="";
 			String nextWord="";
@@ -207,6 +192,7 @@ public class SharonChatBox {
 		food=new JiayanFood();
 		nice= new DanielNice();
 		jokes= new SharonJokes();
+		sports= new AnnaWWE();
 	}
 	
 	
