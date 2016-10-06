@@ -31,7 +31,7 @@ public class SharonChatBox {
 				user=input.nextLine();
 				print("Nice to meet you, "+user+ " !");
 	}
-	
+	//
 	
 	public static void talkForever(){
 		inLoop=true;
