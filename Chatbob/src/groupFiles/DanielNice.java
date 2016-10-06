@@ -13,20 +13,23 @@ public class DanielNice  implements Topic  {
 
 	@Override
 	public void talk() {
+		inNiceLoop = true;
 		while(inNiceLoop){
 			niceCount++;
-		}
+		
 		printHappyResponse();
 		niceResponse = SharonChatBox.getInput();
 		if(!isTriggered(niceResponse)){
 			inNiceLoop = false;
+			SharonChatBox.talkForever();
+		}
 		}	
 
 	}
 	
 	private void printHappyResponse(){
 		if(niceCount<=8)
-			SharonChatBox.print(happyResponses[niceCount]);
+			SharonChatBox.print(happyResponses[niceCount-1]);
 		else
 		    SharonChatBox.print("Let's talk about you instead.");
 					    
