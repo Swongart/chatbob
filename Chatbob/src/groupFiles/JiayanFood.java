@@ -4,15 +4,14 @@ public class JiayanFood implements Topic {
 private boolean inRestaurantLoop;
 private boolean inFoodLoop;
 private String foodResponse;
-private static String [] foods = {"pizza","ice cream","Japanese Food","Korean Food"};
+private static String [] foods = {"pizza","ice cream","Japanese Food","Korean Food","Halal","Pasta",};
 private static String [] foodResponseArr = {"I like pizza too. I like plain cheese pizza the best.",
 		"I love ice cream too! Eating ice cream in the winter is the best",
 		"I don't enjoy Japanese food. Why do you like it?", "I only enjoy certain Korean dishes. Which is your favorite?"};
-private static String [] restaurants = {"Di Fara Pizza","Ample Hills Creamery","Kyo Ya","Shilla"};
+private static String [] restaurants = {"Di Fara Pizza","Ample Hills Creamery","Kyo Ya","Shilla","The Halal Guys Food Cart","Osteria Morini",};
 
 	public void talk() {
-	inRestaurantLoop = true;
-	inFoodLoop = true;
+	whichLoop();
 	while(inRestaurantLoop) 
 	{
 		foodResponse = SharonChatBox.getInput();
@@ -34,35 +33,43 @@ private static String [] restaurants = {"Di Fara Pizza","Ample Hills Creamery","
 		}
 	} 
 	}
+	private void whichLoop()
+	{
+		int ranLoop = (int)(Math.random()*20+1);
+		if(ranLoop > 10)
+		{
+			inRestaurantLoop = true;
+		}
+		else
+		{
+			inFoodLoop = true;
+		}
+	}
 	private void suggestRestaurant()
 	{
-		for(int foodIndex = 0; foodIndex < 8; foodIndex++)
+		for(int foodIndex = 0; foodIndex < 15; foodIndex++)
 		{
-			if(SharonChatBox.findKeyword(foodResponse, foods[foodIndex], 0)>= 0)
+			if(SharonChatBox.findKeyword(foodResponse, foods[foodIndex], 0)>= 0 
+					&& SharonChatBox.findKeyword(foodResponse, "like", 0)>= 0)
 			{
 				SharonChatBox.print("Since you like " + foods[foodIndex] + ". I suggest you go to "+ restaurants[foodIndex]);
+			}
+			else if(SharonChatBox.findKeyword(foodResponse, "you", 0)>= 0)
+			{
+				SharonChatBox.print("I operate only on electricity.");
 			}
 		}
 	}
 	private void talkFoods()
 	{
-		if(SharonChatBox.findKeyword(foodResponse, "pizza", 0)>= 0)
+		for(int strIndex = 0; strIndex < 15; strIndex++)
 		{
-			SharonChatBox.print(foodResponseArr[0]);
+			if(SharonChatBox.findKeyword(foodResponse, foods[strIndex], 0)>= 0)
+			{
+				SharonChatBox.print(foodResponseArr[strIndex]);
+			}
+			
 		}
-		if(SharonChatBox.findKeyword(foodResponse, "ice cream", 0)>= 0)
-		{
-			SharonChatBox.print(foodResponseArr[1]);
-		}
-		if(SharonChatBox.findKeyword(foodResponse, "Japanese Food", 0)>= 0)
-		{
-			SharonChatBox.print(foodResponseArr[2]);
-		}
-		if(SharonChatBox.findKeyword(foodResponse, "Korean Food", 0)>= 0)
-		{
-			SharonChatBox.print(foodResponseArr[3]);
-		}
-		
 	}
 	public boolean isTriggered(String userInput) {
 		if(SharonChatBox.findKeyword(userInput, "food", 0)>= 0)
@@ -73,7 +80,10 @@ private static String [] restaurants = {"Di Fara Pizza","Ample Hills Creamery","
 		{
 			return true;
 		}
-		
+		if(SharonChatBox.findKeyword(userInput, "restaurant", 0)>= 0)
+		{
+			return true;
+		}
 		return false;
 	}
 
