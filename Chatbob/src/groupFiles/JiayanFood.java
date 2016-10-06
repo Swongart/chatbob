@@ -7,7 +7,9 @@ private String foodResponse;
 private static String [] foods = {"pizza","ice cream","Japanese Food","Korean Food","Halal","Pasta",};
 private static String [] foodResponseArr = {"I like pizza too. I like plain cheese pizza the best.",
 		"I love ice cream too! Eating ice cream in the winter is the best",
-		"I don't enjoy Japanese food. Why do you like it?", "I only enjoy certain Korean dishes. Which is your favorite?"};
+		"I don't enjoy Japanese food. Why do you like it?", 
+		"I only enjoy certain Korean dishes. Which is your favorite?","There are so many halal carts in the city.",
+		"What is you favorite pasta dish?"};
 private static String [] restaurants = {"Di Fara Pizza","Ample Hills Creamery","Kyo Ya","Shilla","The Halal Guys Food Cart","Osteria Morini",};
 
 	public void talk() {
@@ -47,7 +49,7 @@ private static String [] restaurants = {"Di Fara Pizza","Ample Hills Creamery","
 	}
 	private void suggestRestaurant()
 	{
-		for(int foodIndex = 0; foodIndex < 15; foodIndex++)
+		for(int foodIndex = 0; foodIndex < 6; foodIndex++)
 		{
 			if(SharonChatBox.findKeyword(foodResponse, foods[foodIndex], 0)>= 0 
 					&& SharonChatBox.findKeyword(foodResponse, "like", 0)>= 0)
@@ -62,7 +64,7 @@ private static String [] restaurants = {"Di Fara Pizza","Ample Hills Creamery","
 	}
 	private void talkFoods()
 	{
-		for(int strIndex = 0; strIndex < 15; strIndex++)
+		for(int strIndex = 0; strIndex < 6; strIndex++)
 		{
 			if(SharonChatBox.findKeyword(foodResponse, foods[strIndex], 0)>= 0)
 			{
