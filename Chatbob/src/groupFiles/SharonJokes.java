@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class SharonJokes implements Topic {
 	//private boolean inJokesLoop;
-	//private String jokesResponse;
+	private String jokesResponse;
 	private String kkjokeSubjects[] = {"Anime","Yah!","Art"};
 	private String kkjokeAnswers[] = {"Are you from Japan? Cause you've got Anime-zing body!\n",
 			"Well, thanks, but i'm more of a Google person\n","R2-D2\n"};
@@ -28,13 +28,13 @@ public class SharonJokes implements Topic {
 		
 			for(int x = 0; x < kkjokeSubjects.length; x++){
 				System.out.println("Knock Knock"); //knock knock
-			/*jokesResponse=*/
+				jokesResponse=
 				SharonChatBox.getInput(); //whose there
-			
+				sayWhosThere();
 			System.out.println(kkjokeSubjects[x]); //subject 
-			/*jokesResponse=*/
+			jokesResponse=
 			SharonChatBox.getInput(); //subject who?
-			
+			saySubjectWho();
 			System.out.println(kkjokeAnswers[x]); //answer
 			
 			
@@ -47,6 +47,35 @@ public class SharonJokes implements Topic {
 //				else{
 //					SharonChatBox.print("I don't understand you.");
 //				}
+		private void sayWhosThere(){
+			if (SharonChatBox.findKeyword(jokesResponse,"who's there",0)>=0)
+			{
+				
+			}
+			else if (SharonChatBox.findKeyword(jokesResponse,"who's there",0)<=0)
+			{
+				System.out.println("You were supposed to ask who's there?");
+				jokesResponse=
+				SharonChatBox.getInput();
+				sayWhosThere();
+			}
+		}
+			private void saySubjectWho(){
+				if (SharonChatBox.findKeyword(jokesResponse,"who",0)>=0)
+				{
+					
+				}		
+				else if (SharonChatBox.findKeyword(jokesResponse,"who",0)<=0)
+				{
+					System.out.println("You were supposed to who that is");
+				jokesResponse=
+					SharonChatBox.getInput(); //subject who?
+					saySubjectWho();
+					
+				}		
+			
+			
+		}
 		
 		
 		public boolean isTriggered(String userInput) {
