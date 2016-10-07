@@ -9,7 +9,7 @@ public class SharonChatBox {
 	static boolean inLoop;
 	static String response;
 	static Topic school;
-	static Topic like;
+	//static Topic like;
 	static Topic hello;
 	static Topic food;
 	static Topic mean;
@@ -57,11 +57,13 @@ public class SharonChatBox {
 					inLoop = false; //exit this greetings loop
 					school.talk();
 				}
+			/*
 				else if (like.isTriggered(response))
 				{
 					inLoop = false; //exit this greetings loop
 					like.talk();
 				}
+				*/
 				else if (food.isTriggered(response))
 				{
 					inLoop = false;
@@ -199,7 +201,7 @@ public class SharonChatBox {
 	public static void createTopics() {
 		input=new Scanner(System.in);
 		school=new School();
-		like= new SharonLike();
+		//like= new SharonLike();
 		hello= new SharonHello();
 		mean= new DanielMean();
 		food=new JiayanFood();
