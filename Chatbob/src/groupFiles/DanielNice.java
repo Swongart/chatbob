@@ -20,6 +20,7 @@ public class DanielNice  implements Topic  {
 		niceResponse = SharonChatBox.getInput();
 		if(!isTriggered(niceResponse)){
 			inNiceLoop = false;
+			SharonChatBox.talkForever();
 		}	
 
 	}
@@ -36,14 +37,15 @@ public class DanielNice  implements Topic  {
 	@Override
 	public boolean isTriggered(String userInput) {
 		String[] niceTriggers = {"smart", "cool", "awesome", "great", "useful", "nice", "intelligent","funny","kind","amazing"};
-		for(int i = 0; i < niceTriggers.length; i++){
-			
-			if(SharonChatBox.findKeyword(userInput, niceTriggers[i] , 0)>=0){
-				return true;
+		if((SharonChatBox.findKeyword(userInput, "you are" , 0)>=0)){
+			for(int i = 0; i < niceTriggers.length; i++){
+
+				if(SharonChatBox.findKeyword(userInput, niceTriggers[i] , 0)>=0){
+					return true;
+				}
 			}
 		}
-			
-		return false;
+		return false ;
 	} 
 
 }

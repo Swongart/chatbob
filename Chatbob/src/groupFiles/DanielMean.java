@@ -22,9 +22,13 @@ public class DanielMean implements Topic {
 		}
 		printSadResponse();
 		meanResponse = SharonChatBox.getInput();
-		if(isApology(meanResponse) == true){
+		if(isApology(meanResponse) == true && meanCount > 4 ){
 			SharonChatBox.print("I accept your apology");
 			
+			inMeanLoop = false;
+			SharonChatBox.talkForever();
+		}
+		if(meanCount < 4 && !isTriggered(meanResponse)){
 			inMeanLoop = false;
 			SharonChatBox.talkForever();
 		}
@@ -65,15 +69,18 @@ public class DanielMean implements Topic {
 	@Override
 	public boolean isTriggered(String userInput) {
 		String[] meanTriggers = {"stupid", "idiot", "ugly", "dumb", "useless", "loser", "failure"};
-		for(int i = 0; i < meanTriggers.length; i++){
-			
-			if(SharonChatBox.findKeyword(userInput, meanTriggers[i] , 0)>=0){
-				return true;
-			}
+		if((SharonChatBox.findKeyword(userInput, "you are" , 0)>=0)){
+			for(int i = 0; i < meanTriggers.length; i++){
 
+				if(SharonChatBox.findKeyword(userInput, meanTriggers[i] , 0)>=0){
+					return true;
+				}
+
+			}
 		}
-			
+
 		return false;
+		
 	} 
 
 }
