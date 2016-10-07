@@ -10,14 +10,14 @@ public class AnnaWWE implements Topic{
 	@Override 
 	public void talk() {
 		// TODO Auto-generated method stub
-		SharonChatBox.print("Do you like wrestling?");
+		SharonChatBox.print("Do you like wrestling? Please answer with yes or no");
 		inWWELoop = true;
 		while (inWWELoop){
 			WWEResponse = SharonChatBox.getInput();
-			if(SharonChatBox.findKeyword(WWEResponse,"yes",0)>=0){
+			if(SharonChatBox.findKeyword(WWEResponse," yes ",0)>=0 || SharonChatBox.findKeyword(WWEResponse," yes.",0)>=0){
 				SharonChatBox.print("Do you like WWE?");
 				WWEResponse = SharonChatBox.getInput();
-				if (SharonChatBox.findKeyword(WWEResponse, "yes", 0)>=0){
+				if (SharonChatBox.findKeyword(WWEResponse," yes ",0)>=0 || SharonChatBox.findKeyword(WWEResponse," yes.",0)>=0){
 					SharonChatBox.print("You are so cool. Who do you like?");
 					String[] divas = {"dean ambrose", "seth rollins", "roman reigns", "aj styles", "kevin owens","chris jericho", "charlotte", "sasha banks", "becky lynch", "bayley", "john cena", "randy orton"};
 					WWEResponse = SharonChatBox.getInput();
@@ -35,7 +35,8 @@ public class AnnaWWE implements Topic{
 				
 			}
 			else{
-				SharonChatBox.print("I don't understand you");
+				inWWELoop = false;
+				SharonChatBox.talkForever();
 			}
 		}
 	}
