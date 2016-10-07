@@ -8,7 +8,7 @@ public class SharonChatBox {
 	static String user;
 	static boolean inLoop;
 	static String response;
-	static Topic school;
+	//static Topic school;
 	//static Topic like;
 	static Topic hello;
 	static Topic food;
@@ -37,11 +37,11 @@ public class SharonChatBox {
 	public static void talkForever(){
 		inLoop=true;
 		while (inLoop){
-			print("Greetings, "+user+". How are you?");
+			print("Greetings, "+user+". Would you like to talk about wrestling, food, or hear some jokes?");
 			response=getInput();
 			
-			inLoop=false;
 			
+			/*
 			if (findKeyword(response,"good",0)>=0){
 				print("I'm so happy you're good.");
 			
@@ -52,19 +52,22 @@ public class SharonChatBox {
 				jokes.talk();
 			}
 			
+			
 				else if (school.isTriggered(response))
 				{
 					inLoop = false; //exit this greetings loop
 					school.talk();
 				}
-			/*
+				
+			
 				else if (like.isTriggered(response))
 				{
 					inLoop = false; //exit this greetings loop
 					like.talk();
 				}
 				*/
-				else if (food.isTriggered(response))
+				
+				if (food.isTriggered(response))
 				{
 					inLoop = false;
 					food.talk();      
@@ -92,7 +95,6 @@ public class SharonChatBox {
 					jokes.talk();
 
 				}
-			//asdfsda
 				else 
 				{
 					print("I do not understand you.");
@@ -200,7 +202,7 @@ public class SharonChatBox {
 	
 	public static void createTopics() {
 		input=new Scanner(System.in);
-		school=new School();
+		//school=new School();
 		//like= new SharonLike();
 		hello= new SharonHello();
 		mean= new DanielMean();

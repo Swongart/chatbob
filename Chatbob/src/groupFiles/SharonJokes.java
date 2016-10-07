@@ -3,8 +3,10 @@ package groupFiles;
 import java.util.Random;
 
 public class SharonJokes implements Topic {
-	private boolean inJokesLoop;
+	//private boolean inJokesLoop;
 	private String jokesResponse;
+	private String kkjokeSubjects[] = {"s1","s2","s3"};
+	private String kkjokeAnswers[] = {"a1","a2","a3"};
 
 		public void talk() {
 			String[] puns = {"A guy gets hit by a car and suffers brain damage. I guess you could say he was driven insane",
@@ -13,48 +15,42 @@ public class SharonJokes implements Topic {
 					"When I get naked in the bathroom, the shower usually gets turned on." };
 			int i = new Random().nextInt(puns.length); //draws value between 0(inclusive)-length(exclusive)
 			System.out.println("Fun's my middle name.\n"+puns[i]);
-			 String punResponse= SharonChatBox.getInput();
-			 
+			String punResponse= SharonChatBox.getInput();
+			 /*
 			 if (punResponse== "not funny"|| punResponse=="lame") {
 				 System.out.println("well then...");
 			 };
-				 System.out.println("very well\n"); 
-			 
-		inJokesLoop = true;
-		while(inJokesLoop)
-		{
-
-			SharonChatBox.print("let me tell you a joke");
-			inJokesLoop=true;
-			while(inJokesLoop){
-				jokesResponse=SharonChatBox.getInput();
-				int jokePsn=SharonChatBox.findKeyword(jokesResponse, "joke", 0);
+			 */
+				 
+			System.out.println("very well...\n"); 
+		
+			for(int x = 0; x < kkjokeSubjects.length; x++){
+				System.out.println("Knock Knock"); //knock knock
+			jokesResponse=SharonChatBox.getInput(); //whose there
+			
+			System.out.println(kkjokeSubjects[x]); //subject 
+			jokesResponse=SharonChatBox.getInput(); //subject who?
+			
+			System.out.println(kkjokeAnswers[x]); //answer
+			
+			
+			};
+			System.out.println("Well.. that's all i've got.");
+			SharonChatBox.talkForever();
 				
 				}
+		
 //				else{
 //					SharonChatBox.print("I don't understand you.");
 //				}
-			}
 		
-			System.out.println(); //what do you call a ___ ...
-			jokesResponse=SharonChatBox.getInput(); //idk.
-
-			
-			System.out.println(); //answer
-			jokesResponse=SharonChatBox.getInput(); //final response
-			
-		
-			//System.out.println("this is where the jokes will go.");
-		}
-			 
-
-
-		
-		
-
 		
 		public boolean isTriggered(String userInput) {
 			if(SharonChatBox.findKeyword(userInput, "joke", 0)>= 0)
+			{
+				return true;
+			}
+			if(SharonChatBox.findKeyword(userInput, "jokes", 0)>= 0)
 			{
 				return true;
 			}
