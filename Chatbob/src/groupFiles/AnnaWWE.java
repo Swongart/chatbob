@@ -15,7 +15,7 @@ public class AnnaWWE implements Topic{
 		while (inWWELoop){
 			WWEResponse = SharonChatBox.getInput();
 			if(SharonChatBox.findKeyword(WWEResponse," yes ",0)>=0 || SharonChatBox.findKeyword(WWEResponse," yes.",0)>=0){
-				SharonChatBox.print("Do you like WWE?");
+				SharonChatBox.print("Do you like WWE? Please answer with yes or no");
 				WWEResponse = SharonChatBox.getInput();
 				if (SharonChatBox.findKeyword(WWEResponse," yes ",0)>=0 || SharonChatBox.findKeyword(WWEResponse," yes.",0)>=0){
 					SharonChatBox.print("You are so cool. Who do you like?");
