@@ -2,75 +2,37 @@ package groupFiles;
 
 public class JiayanFood implements Topic {
 	private boolean inRestaurantLoop;
-	private boolean inFoodLoop;
 	private String foodResponse;
-	private static String [] foods = {"pizza","ice cream","Japanese Food","Korean Food","Halal","Pasta",};
-	private static String [] foodResponseArr = {"I like pizza too. I like plain cheese pizza the best.",
-			"I love ice cream too! Eating ice cream in the winter is the best",
-			"I don't enjoy Japanese food. Why do you like it?", 
-			"I only enjoy certain Korean dishes. Which is your favorite?","There are so many halal carts in the city.",
-			"What is you favorite pasta dish?"};
-	private static String [] restaurants = {"Di Fara Pizza","Ample Hills Creamery","Kyo Ya","Shilla","The Halal Guys Food Cart","Osteria Morini",};
-	private void whichLoop()
-		{
-			int ranLoop = (int)(Math.random()*20+1);
-			if(ranLoop > 10)
-			{
-				inRestaurantLoop = true;
-			}
-			else
-			{
-				inFoodLoop = true;
-			}
-		}
+	private static String [] foods = {"pizza","ice cream","sushi","Korean","Halal","Pasta","pancakes","burger","tacos","coffee"};
+	private static String [] restaurants = {"Di Fara Pizza","Ample Hills Creamery","Kyo Ya","Shilla","The Halal Guys Food Cart","Osteria Morini","IHOP","Shake Shack","Los Tacos No.1","Cafe Grumpy"};
+	private static String [] convoExtensions = {"Why do you like it?", "Is it your favorite?","Where do you like to go to get it?","What makes you like it?"};
 	public void talk() {
-	whichLoop();
+	inRestaurantLoop = true;
 	while(inRestaurantLoop) 
 	{
 		foodResponse = SharonChatBox.getInput();
-		suggestRestaurant();
+		suggestOrAsk();
 		if(!isTriggered(foodResponse))
 		{
 			inRestaurantLoop = false;
 			SharonChatBox.talkForever();
 		}
 	} 
-	while(inFoodLoop)
-	{
-		foodResponse = SharonChatBox.getInput();
-		talkFoods();
-		if(!isTriggered(foodResponse))
-		{
-			inFoodLoop = false;
-			SharonChatBox.talkForever();
-		}
-	} 
 	}
-	
-	private void suggestRestaurant()
+	private void suggestOrAsk()
 	{
-		for(int foodIndex = 0; foodIndex < 6; foodIndex++)
+		for(int foodIndex = 0; foodIndex < 10; foodIndex++)
 		{
 			if(SharonChatBox.findKeyword(foodResponse, foods[foodIndex], 0)>= 0 
 					&& SharonChatBox.findKeyword(foodResponse, "like", 0)>= 0)
 			{
 				SharonChatBox.print("Since you like " + foods[foodIndex] + ". I suggest you go to "+ restaurants[foodIndex]);
 			}
-			else if(SharonChatBox.findKeyword(foodResponse, "you", 0)>= 0)
+			else 
 			{
-				SharonChatBox.print("I operate only on electricity.");
+				int arrIndex = (int)(Math.random()*4 +1);
+				SharonChatBox.print(convoExtensions[arrIndex]);
 			}
-		}
-	}
-	private void talkFoods()
-	{
-		for(int strIndex = 0; strIndex < 6; strIndex++)
-		{
-			if(SharonChatBox.findKeyword(foodResponse, foods[strIndex], 0)>= 0)
-			{
-				SharonChatBox.print(foodResponseArr[strIndex]);
-			}
-			
 		}
 	}
 	public boolean isTriggered(String userInput) {
