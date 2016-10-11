@@ -11,6 +11,7 @@ public class Anna {
 	static String response;
 	static Topic school;
 	static Topic like;
+	static Topic hello;
 	
 	public static void main (String[] args){
 		createTopic();
@@ -34,14 +35,18 @@ public class Anna {
 				if (findKeyword(response, "good", 0) >= 0){
 					print("I'm so happy you're good");
 				}
-				else if (findKeyword(response, "like", 0) >= 0){
+				else if (like.isTriggered(response)){
 					inLoop = false;
 					like.talk();
 				}
 				
-				else if (findKeyword(response, "school", 0) >= 0){
+				else if (school.isTriggered(response)){
 					inLoop = false;
 					school.talk();
+				}
+				else if (hello.isTriggered(response)){
+					inLoop = false;
+					hello.talk();
 				}
 		}
 	}
@@ -156,6 +161,7 @@ public class Anna {
 		input = new Scanner(System.in);
 		school = new School();
 		like = new AnnaLikes();
+		hello = new AnnaHello();
 	}
 	
 	public static void demonstrateStringMethods(){
