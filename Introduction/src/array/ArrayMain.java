@@ -2,7 +2,7 @@ package array;
 
 public class ArrayMain {
 	
-	public static void main(String[] args){ 
+	public static void main(String[] args){
 		//This is how you time how quickly the computer processes
 		long startTime = System.currentTimeMillis();
 		arrayIntroMethod();
