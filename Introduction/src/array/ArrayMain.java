@@ -1,15 +1,40 @@
 package array;
 
 public class ArrayMain {
-	
+	//PASS BY VALUE
 	public static void main(String[] args){ 
 		//This is how you time how quickly the computer processes
 		long startTime = System.currentTimeMillis();
-		arrayIntroMethod();
+		String[] someStrings = new String[100];
+		populateArray(someStrings);
+		
+		changeString(someStrings[99]);
+		
+		printArray(someStrings);
+		//arrayIntroMethod();
 		long endTime = System.currentTimeMillis();
 		System.out.println("Completed method in " + (endTime-startTime) + " milliseconds");
 	}
 	
+	private static void changeString(String s) {
+		// TODO Auto-generated method stub
+		s = "This string has been changed";
+	}
+
+	private static void printArray(String[] a) {
+		// TODO Auto-generated method stub
+		for(String s: a){
+			System.out.println(s);
+		}
+	}
+
+	private static void populateArray(String[] a) {
+		// TODO Auto-generated method stub
+		for(int i = 0; i<a.length; i++){
+			a[i] = "value " + (i+1);
+		}
+	}
+
 	public static void arrayIntroMethod(){
 		// construct 3 interger arrays
 				//these two methods are the same thing
@@ -37,9 +62,16 @@ public class ArrayMain {
 				String[] strings1 = {"", "", ""};
 				String[] strings2 = new String[3];
 				
+				for(int i = 0; i<strings2.length; i++){
+					strings2[i] = "value " + (i+1);
+				}
+				
+				
 				for(String s: strings1){
 					System.out.println(s);
 				}
+				
+				//this loop prints the string
 				for(String s: strings2){
 					System.out.println(s);
 				}
