@@ -16,4 +16,4 @@ public class SampleElement {
 	public void increase(){
 		number++;
 	}
-} 
+}

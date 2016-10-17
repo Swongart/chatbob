@@ -12,6 +12,7 @@ public class ArrayMain {
 		
 		long endTime = System.currentTimeMillis();
 		System.out.println("Completed method in " + (endTime-startTime) + " milliseconds");
+		passByValueDemon();
 	}
 	
 	private static void passByValueDemon(){
@@ -29,7 +30,6 @@ public class ArrayMain {
 		printArray(someStrings);
 		//arrayIntroMethod();
 	}
-	
 	
 	private static void changeArrayElement(String[] someStrings, int i) {
 		// TODO Auto-generated method stub
