@@ -5,15 +5,42 @@ public class ArrayMain {
 	public static void main(String[] args){ 
 		//This is how you time how quickly the computer processes
 		long startTime = System.currentTimeMillis();
+		
+		SampleElement sample = new SampleElement(10);
+		sample.increase();
+		System.out.println("This sample element has a number equal to " + sample.getNumber());
+		
+		long endTime = System.currentTimeMillis();
+		System.out.println("Completed method in " + (endTime-startTime) + " milliseconds");
+	}
+	
+	private static void passByValueDemon(){
 		String[] someStrings = new String[100];
 		populateArray(someStrings);
 		
+		//in this method, we pass the ELEMENT
+		//(a variable), not the array
+		//no change will be made
+		System.out.println("Before " + someStrings[99]);
 		changeString(someStrings[99]);
-		
+		changeArray(someStrings);
+		System.out.println("After \"changeString\" method " + someStrings[99]);
+		changeArrayElement(someStrings,99);
 		printArray(someStrings);
 		//arrayIntroMethod();
-		long endTime = System.currentTimeMillis();
-		System.out.println("Completed method in " + (endTime-startTime) + " milliseconds");
+	}
+	
+	
+	private static void changeArrayElement(String[] someStrings, int i) {
+		// TODO Auto-generated method stub
+		someStrings[i] = "new item " + (i+1);
+	}
+
+	private static void changeArray(String[] someStrings){
+		someStrings = new String[100];
+		for(int i=0; i<someStrings.length; i++){
+			someStrings[i] = "new item " + (i+1);
+		}
 	}
 	
 	private static void changeString(String s) {
