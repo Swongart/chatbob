@@ -40,8 +40,8 @@ public class Array2 {
 		for(int i=0; i<a.length; i++){
 			//results[a[i]-2]++;
 		}
-		for(int i=0; i<a.length; i++){
-			System.out.println((1+i)+" is rolled " + (double)(a[i])/(arr/));
-		}
+//		for(int i=0; i<a.length; i++){
+//			System.out.println((1+i)+" is rolled " + (double)(a[i])/(arr/));
+//		}
 	}
 }
