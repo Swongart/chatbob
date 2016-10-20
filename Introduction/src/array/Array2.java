@@ -1,6 +1,6 @@
 package array;
 
-public class Array2 {
+public class Array2 { 
 	public static void main(String[] args){
 		int[] arr = new int[50];
 		System.out.println("First Array");

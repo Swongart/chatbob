@@ -2,7 +2,7 @@ package array;
 	
 	import java.util.Scanner;
 
-public class LoginProgram {
+public class LoginProgram { 
 	
 	static Scanner input = new Scanner(System.in);
 	
